@@ -17,6 +17,7 @@ machine:
 
 dependencies:
   override:
+    - echo "Ignore CircleCI default dependencies"
     - composer install --no-interaction
     - composer dump-autoload
   post:
@@ -38,6 +39,7 @@ test:
     - sleep 5
 
   override:
+    - echo "Ignore CircleCI default test"
     - php artisan dusk
 
   post:
@@ -45,8 +47,3 @@ test:
     - cp tests/Browser/console $CIRCLE_ARTIFACTS/console
     - cp tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
     - curl http://127.0.0.1:8000
-
-general:
-  branches:
-    ignore:
-      - master
