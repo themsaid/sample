@@ -1,0 +1,54 @@
+machine:
+  pre:
+    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
+
+  php:
+    version: 7.1.0
+
+  environment:
+    ENVIRONMENT: testing
+    APP_KEY: abcdefghijklmnopqrstuvwxyz123456
+    APP_ENV: testing
+    APP_URL: http://http://127.0.0.1:8000
+
+  post:
+      - chromedriver:
+          background: true
+
+dependencies:
+  override:
+    - echo "Ignore CircleCI default dependencies"
+    - composer install --no-interaction
+    - composer dump-autoload
+  post:
+      - ./chromedriver:
+          background: true
+
+database:
+  override:
+    - php artisan migrate
+
+test:
+  pre:
+    - touch storage/logs/laravel.log
+    - "./vendor/laravel/dusk/bin/chromedriver-linux":
+        background: true
+    - sleep 5
+    - "php artisan serve":
+        background: true
+    - sleep 5
+
+  override:
+    - echo "Ignore CircleCI default test"
+    - php artisan dusk
+
+  post:
+    - cp storage/logs/laravel.log $CIRCLE_ARTIFACTS/laravel.log
+    - cp tests/Browser/console $CIRCLE_ARTIFACTS/console
+    - cp tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
+    - curl http://127.0.0.1:8000
+
+general:
+  branches:
+    ignore:
+      - master
