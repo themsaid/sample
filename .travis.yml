@@ -23,7 +23,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 script:
-  - ./vendor/laravel/dusk/bin/chromedriver-linux
+  - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - php artisan dusk
 
 notifications:
