@@ -16,8 +16,8 @@ dependencies:
 test:
   pre:
     - touch storage/logs/laravel.log
-#    - "./vendor/laravel/dusk/bin/chromedriver-linux":
-#        background: true
+    - "./vendor/laravel/dusk/bin/chromedriver-linux":
+        background: true
     - sleep 5
     - cp .env.dusk.testing .env
     - "php artisan serve":
