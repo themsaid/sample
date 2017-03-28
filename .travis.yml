@@ -3,25 +3,24 @@ language: php
 dist: trusty
 
 addons:
-  apt:
-    sources:
-      - google-chrome
-    packages:
-      - google-chrome-stable
+apt:
+  sources:
+    - google-chrome
+  packages:
+    - google-chrome-stable
+    - google-chrome-beta
 
 php:
   - 7.1
 
 before_install:
- - export DISPLAY=:99.0
- - sh -e /etc/init.d/xvfb start &
- - sleep 5
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 5
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-
-before_script:
-  - sleep 5
 
 script:
   - php artisan dusk
