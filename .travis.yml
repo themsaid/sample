@@ -1,14 +1,10 @@
-sudo: required
-
 language: php
-
-dist: trusty
 
 php:
   - 7.1
-before_script:
-  - composer self-update
-  - composer install --no-interaction
+
+install:
+ - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 script:
   - php artisan dusk
