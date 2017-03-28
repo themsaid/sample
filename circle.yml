@@ -34,6 +34,6 @@ test:
 
   post:
     - cp storage/logs/laravel.log $CIRCLE_ARTIFACTS/laravel.log
-    - cp tests/Browser/console $CIRCLE_ARTIFACTS/console
-    - cp tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
+    - cp -r tests/Browser/console $CIRCLE_ARTIFACTS/console
+    - cp -r tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
     - curl http://127.0.0.1:8000
