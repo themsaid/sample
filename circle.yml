@@ -9,9 +9,9 @@ dependencies:
   override:
     - composer install --no-interaction
     - composer dump-autoload
-#  post:
-#      - ./chromedriver:
-#          background: true
+  post:
+      - ./chromedriver:
+          background: true
 test:
   pre:
     - touch storage/logs/laravel.log
