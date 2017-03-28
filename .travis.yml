@@ -21,7 +21,6 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
-  - php artisan serve &
   - sleep 5
 
 script:
