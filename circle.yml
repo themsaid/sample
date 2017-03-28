@@ -10,9 +10,6 @@ dependencies:
     - echo "Ignore CircleCI default dependencies"
     - composer install --no-interaction
     - composer dump-autoload
-  post:
-      - ./chromedriver:
-          background: true
 test:
   pre:
     - touch storage/logs/laravel.log
