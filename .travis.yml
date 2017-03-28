@@ -5,6 +5,12 @@ php:
 
 install:
  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+ - sleep 5
 
 script:
   - php artisan dusk
+
+notifications:
+  email:
+    on_success: never
+    on_failure: never
