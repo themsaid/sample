@@ -7,7 +7,6 @@ machine:
 
 dependencies:
   override:
-    - echo "Ignore CircleCI default dependencies"
     - composer install --no-interaction
     - composer dump-autoload
 #  post:
@@ -25,7 +24,6 @@ test:
     - sleep 5
 
   override:
-    - echo "Ignore CircleCI default test"
     - php artisan dusk
 
   post:
