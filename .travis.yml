@@ -24,6 +24,7 @@ install:
 
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  - cp .env.dusk.testing .env
   - php artisan serve &
   - php artisan dusk
 
