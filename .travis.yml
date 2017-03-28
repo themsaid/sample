@@ -20,13 +20,18 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
-  - "export PATH=$PATH:/usr/lib/chromium-browser/"
-  - "export DISPLAY=:99.0"
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - sleep 3
+  - sudo apt-get update
+  - sudo apt-get install -y libappindicator1 fonts-liberation
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
+  - sh -e /etc/init.d/xvfb start
+  - sleep 5
   - chmod -R 0755 vendor/laravel/dusk/bin
   - php artisan serve &
-  - sleep 3
+  - sleep 5
 
 script:
   - php artisan dusk
