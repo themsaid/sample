@@ -12,12 +12,16 @@ addons:
 php:
   - 7.1
 
+before_install:
+ - sudo apt-get update
+ - sudo apt-get install chromium-chromedriver
+
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
+  - "export PATH=$PATH:/usr/lib/chromium-browser/"
+  - "export DISPLAY=:99.0"
   - sh -e /etc/init.d/xvfb start
   - sleep 3
   - chmod -R 0755 vendor/laravel/dusk/bin
