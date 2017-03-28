@@ -24,6 +24,7 @@ install:
 
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
+  - php artisan serve &
   - php artisan dusk
 
 notifications:
