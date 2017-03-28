@@ -2,25 +2,27 @@ sudo: required
 language: php
 dist: trusty
 
+addons:
+  apt:
+    sources:
+      - google-chrome
+    packages:
+      - google-chrome-stable
+
 php:
   - 7.1
-
-before_install:
-  - export CHROME_BIN=/usr/bin/google-chrome
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sudo apt-get update
-  - sudo apt-get install -y libappindicator1 fonts-liberation
-  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-  - sudo dpkg -i google-chrome*.deb
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
+  - export CHROME_BIN=/usr/bin/google-chrome
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - sleep 3
   - chmod -R 0755 vendor/laravel/dusk/bin
   - php artisan serve &
-  - sleep 5
+  - sleep 3
 
 script:
   - php artisan dusk
