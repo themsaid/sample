@@ -13,16 +13,14 @@ php:
   - 7.1
 
 before_install:
- - sudo apt-get update
- - sudo apt-get install chromium-chromedriver
+ - export DISPLAY=:99.0
+ - sh -e /etc/init.d/xvfb start &
+ - sleep 5
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 5
   - php artisan serve &
   - sleep 5
 
