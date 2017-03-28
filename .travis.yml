@@ -28,7 +28,7 @@ script:
   - php artisan serve &
   - php artisan dusk
 
-after_failure
+after_failure:
   - curl http://127.0.0.1:8000
 
 notifications:
