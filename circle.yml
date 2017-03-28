@@ -17,7 +17,6 @@ machine:
 
 dependencies:
   override:
-    - echo "Ignore CircleCI default dependencies"
     - composer install --no-interaction
     - composer dump-autoload
   post:
