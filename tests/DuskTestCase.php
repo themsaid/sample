@@ -30,9 +30,7 @@ abstract class DuskTestCase extends BaseTestCase
     protected function driver()
     {
         $chromeOptions = new ChromeOptions();
-        $chromeOptions->addArguments(['no-sandbox']);
-        $chromeOptions->addArguments(['verbose']);
-        $chromeOptions->addArguments(['log-path=chromedriver.log']);
+        $chromeOptions->addArguments(['no-sandbox', 'verbose']);
         $capabilities = DesiredCapabilities::chrome();
         $capabilities->setCapability(ChromeOptions::CAPABILITY, $chromeOptions);
 
