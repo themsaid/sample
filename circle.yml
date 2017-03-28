@@ -23,11 +23,6 @@ dependencies:
   post:
       - ./chromedriver:
           background: true
-
-database:
-  override:
-    - php artisan migrate
-
 test:
   pre:
     - touch storage/logs/laravel.log
