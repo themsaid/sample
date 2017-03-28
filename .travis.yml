@@ -25,7 +25,6 @@ install:
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
   - php artisan serve &
-  - export APP_ENV=testing
   - php artisan dusk
 
 notifications:
