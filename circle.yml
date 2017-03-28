@@ -5,12 +5,6 @@ machine:
   php:
     version: 7.1.0
 
-  environment:
-    ENVIRONMENT: testing
-    APP_KEY: abcdefghijklmnopqrstuvwxyz123456
-    APP_ENV: testing
-    APP_URL: http://http://127.0.0.1:8000
-
   post:
       - chromedriver:
           background: true
@@ -29,6 +23,7 @@ test:
     - "./vendor/laravel/dusk/bin/chromedriver-linux":
         background: true
     - sleep 5
+    - cp .env.dusk.testing .env
     - "php artisan serve":
         background: true
     - sleep 5
