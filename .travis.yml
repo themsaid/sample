@@ -18,6 +18,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 before_script:
+  - chmod -R 0755 vendor/laravel/dusk/bin
   - php artisan serve &
   - sleep 5
 
