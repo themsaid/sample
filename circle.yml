@@ -39,7 +39,6 @@ test:
     - sleep 5
 
   override:
-    - echo "Ignore CircleCI default test"
     - php artisan dusk
 
   post:
