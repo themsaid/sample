@@ -20,7 +20,6 @@ test:
     - php artisan dusk
 
   post:
-    - cp storage/logs/laravel.log $CIRCLE_ARTIFACTS/laravel.log
     - cp -r tests/Browser/console $CIRCLE_ARTIFACTS/console
     - cp -r tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
     - curl http://127.0.0.1:8000
