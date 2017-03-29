@@ -12,7 +12,7 @@ test:
   pre:
     - "./vendor/laravel/dusk/bin/chromedriver-linux":
         background: true
-    - cp .env.dusk.testing .env
+    - cp .env.testing .env
     - "php artisan serve":
         background: true
 
