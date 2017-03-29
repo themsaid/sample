@@ -1,6 +1,6 @@
 sudo: required
 language: php
-#dist: trusty
+dist: trusty
 
 php:
   - 7.1
