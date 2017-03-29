@@ -11,7 +11,6 @@ install:
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  - sleep 3
 
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
