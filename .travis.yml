@@ -4,11 +4,6 @@ dist: trusty
 
 php:
   - 7.1
-
-env:
-  global:
-    - APP_ENV=testing
-
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
@@ -19,7 +14,7 @@ before_script:
 
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
-#  - cp .env.dusk.testing .env
+  - cp .env.testing .env
   - php artisan serve &
   - php artisan dusk
 
