@@ -6,8 +6,8 @@ php:
   - 7.1
 
 env:
-  - APP_ENV=testing
-  - APP_DEBUG=true
+  global:
+    - APP_ENV=testing
 
 install:
   - travis_retry composer install --no-interaction --prefer-dist --no-suggest
