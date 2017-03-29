@@ -5,13 +5,13 @@ dist: trusty
 php:
   - 7.1
 
-before_install:
+install:
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+
+before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
   - sleep 3
-
-install:
-  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
 
 script:
   - ./vendor/laravel/dusk/bin/chromedriver-linux &
