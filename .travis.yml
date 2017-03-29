@@ -6,7 +6,7 @@ php:
   - 7.1
 
 env:
-  - APP_ENV=staging
+  - APP_ENV=testing
   - APP_DEBUG=true
 
 install:
