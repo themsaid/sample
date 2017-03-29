@@ -1,17 +1,13 @@
 machine:
-  pre:
-    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
-
   php:
-    version: 7.1.0
+    version: 7.0
 
 dependencies:
   override:
     - composer install --no-interaction
-    - composer dump-autoload
+
 test:
   pre:
-    - touch storage/logs/laravel.log
     - "./vendor/laravel/dusk/bin/chromedriver-linux":
         background: true
     - sleep 3
