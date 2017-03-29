@@ -14,11 +14,11 @@ test:
     - touch storage/logs/laravel.log
     - "./vendor/laravel/dusk/bin/chromedriver-linux":
         background: true
-    - sleep 5
+    - sleep 3
     - cp .env.dusk.testing .env
     - "php artisan serve":
         background: true
-    - sleep 5
+    - sleep 3
 
   override:
     - php artisan dusk
