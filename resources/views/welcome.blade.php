@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="{{ config('app.locale') }}">
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -81,8 +81,6 @@
                 <div class="title m-b-md">
                     Laravel
                 </div>
-
-                123
 
                 <div class="links">
                     <a href="https://laravel.com/docs">Documentation</a>
