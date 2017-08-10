@@ -6,7 +6,7 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
-        "laravel/framework": "*@dev",
+        "laravel/framework": "dev-master",
         "laravel/tinker": "~1.0",
         "fideloper/proxy": "~3.3"
     },
@@ -53,12 +53,6 @@
         "sort-packages": true,
         "optimize-autoloader": true
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "./../laravel-src/laravelnext"
-        }
-    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
