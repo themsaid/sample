@@ -6,7 +6,12 @@ jobs:
     docker:
       - image: circleci/php:7.1.8-fpm-node-browsers
 
+    working_directory: ~/laravel
+
     steps:
+      - checkout
+
+      - run: sudo apt-get install -y libsqlite3-dev
       - run: cp .env.testing .env
       - run: composer install -n --ignore-platform-reqs
       - run: npm install
