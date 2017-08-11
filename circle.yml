@@ -6,8 +6,6 @@ jobs:
     docker:
       - image: circleci/php:7.1.8-fpm-node-browsers
 
-    working_directory: ~/laravel
-
     steps:
       - checkout
 
