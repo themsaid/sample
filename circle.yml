@@ -1,19 +1,25 @@
- version: 2
- jobs:
-     build:
-         steps:
-              - run:
-                  name: Composer
-                  command: composer install --no-interaction --prefer-dist --no-suggest
-                  background: true
-              - run:
-                  name: Start Chrome Driver
-                  command: ./vendor/laravel/dusk/bin/chromedriver-linux
-                  background: true
-             - run:
-                 name: Run Laravel Server
-                 command: php artisan serve
-                 background: true
-             - run:
-                 name: Run Laravel Dusk Tests
-                 command: php artisan dusk
+machine:
+  pre:
+    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
+
+  php:
+    version: 7.1.0
+
+dependencies:
+  override:
+    - cp .env.testing .env
+    - composer install --no-interaction
+test:
+  pre:
+    - "./vendor/laravel/dusk/bin/chromedriver-linux":
+        background: true
+    - "php artisan serve":
+        background: true
+
+  override:
+    - php artisan dusk
+
+  post:
+    - cp -r tests/Browser/console $CIRCLE_ARTIFACTS/console
+    - cp -r tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
+    - curl http://127.0.0.1:8000
