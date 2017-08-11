@@ -1,31 +1,28 @@
-machine:
-  pre:
-    - sudo apt-get update; USE_PRECOMPILE=true sudo -E circleci-install php 7.1.0
+version: 2
 
-  php:
-    version: 7.1.0
+jobs:
+  build:
 
-dependencies:
-  pre:
-      - curl -L -o google-chrome.deb https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-      - sudo dpkg -i google-chrome.deb
-      - sudo sed -i 's|HERE/chrome\"|HERE/chrome\" --disable-setuid-sandbox|g' /opt/google/chrome/google-chrome
-      - rm google-chrome.deb
-      
-  override:
-    - cp .env.testing .env
-    - composer install --no-interaction
-test:
-  pre:
-    - "./vendor/laravel/dusk/bin/chromedriver-linux":
-        background: true
-    - "php artisan serve":
-        background: true
+    docker:
+      - image: circleci/php:7.1.8-fpm-node-browsers
 
-  override:
-    - php artisan dusk
+    steps:
+      - run: cp .env.testing .env
+      - run: composer install -n --ignore-platform-reqs
+      - run: npm install
+      - run: npm run production
+      - run: vendor/bin/phpunit
 
-  post:
-    - cp -r tests/Browser/console $CIRCLE_ARTIFACTS/console
-    - cp -r tests/Browser/screenshots $CIRCLE_ARTIFACTS/screenshots
-    - curl http://127.0.0.1:8000
+      - run:
+          name: Start Chrome Driver
+          command: ./vendor/laravel/dusk/bin/chromedriver-linux
+          background: true
+
+      - run:
+          name: Run Laravel Server
+          command: php artisan serve
+          background: true
+
+      - run:
+          name: Run Laravel Dusk Tests
+          command: php artisan dusk
