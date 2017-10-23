@@ -12,6 +12,7 @@
 */
 
 Route::put('/games', function () {
+    return response()->json(123);
 });
 
 Route::get('/games/reskin/{idgame}/{tabnr}/savetext', function () {
