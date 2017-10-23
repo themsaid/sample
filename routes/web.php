@@ -11,7 +11,7 @@
 |
 */
 
-Route::put('/games/reskin/savetext', function () {
+Route::put('/games', function () {
     return view('welcome');
 });
 
