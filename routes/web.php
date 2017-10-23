@@ -11,7 +11,11 @@
 |
 */
 
-Route::put('/games', function () {
+Route::get('/', function () {
+    return response()->json(123);
+});
+
+Route::put('/asd', function () {
     return response()->json(123);
 });
 
