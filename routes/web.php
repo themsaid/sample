@@ -12,7 +12,6 @@
 */
 
 Route::put('/games', function () {
-    return view('welcome');
 });
 
 Route::get('/games/reskin/{idgame}/{tabnr}/savetext', function () {
