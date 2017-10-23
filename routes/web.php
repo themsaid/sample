@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/games/reskin/{idgame}/{tabnr}/savetext', function () {
     return view('welcome');
 });
