@@ -20,14 +20,19 @@ class Kernel extends ConsoleKernel
     /**
      * Define the application's command schedule.
      *
-     * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+     * @param  \Illuminate\Console\Scheduling\Schedule $schedule
      * @return void
      */
     protected function schedule(Schedule $schedule)
     {
         $schedule->command('horizon:snapshot')->everyFiveMinutes();
 
-        $schedule->job(new TestJob1())->everyMinute();
+        $schedule->call(function () {
+            foreach (range(1, rand(5, 30)) as $i) {
+                usleep(1000);
+                dispatch(new \App\Jobs\TestJob1());
+            }
+        })->everyMinute();
     }
 
     /**
