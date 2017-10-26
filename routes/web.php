@@ -14,11 +14,3 @@
 Route::get('/', function () {
     return response()->json(123);
 });
-
-Route::put('/asd', function () {
-    return response()->json(123);
-});
-
-Route::get('/games/reskin/{idgame}/{tabnr}/savetext', function () {
-    return view('welcome');
-});
