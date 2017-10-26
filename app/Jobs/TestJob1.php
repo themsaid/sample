@@ -29,7 +29,7 @@ class TestJob1 implements ShouldQueue
      */
     public function handle()
     {
-        sleep(rand(1, 9));
+        sleep(rand(1, 50));
 
         if (rand(0, 1)) {
             $this->fail();
