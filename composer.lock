@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "6b09361616a8d019f32a2cddcd61aff5",
+    "content-hash": "4f46cabdc98196437939ce4761cf738a",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -597,12 +597,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/horizon.git",
-                "reference": "2bd27b41dbe3949bb1c5bc528df04dd12ee69efd"
+                "reference": "7c3bc98"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/horizon/zipball/2bd27b41dbe3949bb1c5bc528df04dd12ee69efd",
-                "reference": "2bd27b41dbe3949bb1c5bc528df04dd12ee69efd",
+                "url": "https://api.github.com/repos/laravel/horizon/zipball/7c3bc98",
+                "reference": "7c3bc98",
                 "shasum": ""
             },
             "require": {
@@ -642,7 +642,11 @@
                     "Laravel\\Horizon\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Laravel\\Horizon\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -657,6 +661,10 @@
                 "laravel",
                 "queue"
             ],
+            "support": {
+                "source": "https://github.com/laravel/horizon/tree/master",
+                "issues": "https://github.com/laravel/horizon/issues"
+            },
             "time": "2017-10-26T16:11:26+00:00"
         },
         {

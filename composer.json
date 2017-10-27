@@ -7,10 +7,16 @@
     ],
     "license": "MIT",
     "type": "project",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/laravel/horizon"
+        }
+    ],
     "require": {
         "php": ">=7.0.0",
         "laravel/framework": "5.5.*",
-        "laravel/horizon": "1.0.x-dev",
+        "laravel/horizon": "1.0.x-dev#7c3bc98",
         "laravel/tinker": "~1.0",
         "fideloper/proxy": "~3.3"
     },
@@ -51,6 +57,7 @@
             "@php artisan package:discover"
         ]
     },
+
     "config": {
         "preferred-install": "dist",
         "sort-packages": true,
