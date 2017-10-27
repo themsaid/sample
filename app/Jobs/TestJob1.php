@@ -35,4 +35,9 @@ class TestJob1 implements ShouldQueue
             $this->fail();
         }
     }
+
+    public function tags()
+    {
+        return ['tag'];
+    }
 }
