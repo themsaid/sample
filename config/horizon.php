@@ -70,8 +70,8 @@ return [
                 'connection' => 'redis',
                 'queue' => ['default'],
                 'balance' => 'simple',
-                'processes' => 10,
-                'tries' => 3,
+                'processes' => 20,
+                'tries' => 1,
             ],
 
             'supervisor-2' => [
@@ -79,7 +79,7 @@ return [
                 'queue' => ['default'],
                 'balance' => 'auto',
                 'processes' => 10,
-                'tries' => 3,
+                'tries' => 1,
             ],
         ],
     ],
