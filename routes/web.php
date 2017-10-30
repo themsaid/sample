@@ -12,9 +12,9 @@
 */
 
 Route::get('/', function () {
-    foreach (range(1, 8000) as $i) {
-        dispatch(new \App\Jobs\TestJob1());
-    }
+//    foreach (range(1, 8000) as $i) {
+//        dispatch(new \App\Jobs\TestJob1());
+//    }
 
     return response()->json(123);
 });
