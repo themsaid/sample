@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/test', function () {
 //    foreach (range(1, 8000) as $i) {
 //        dispatch(new \App\Jobs\TestJob1());
 //    }
