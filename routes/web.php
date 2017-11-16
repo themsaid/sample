@@ -16,5 +16,5 @@ Route::get('/', function () {
 //        dispatch(new \App\Jobs\TestJob1());
 //    }
 
-    return response()->json(123);
+    return request()->all();
 });
